@@ -3,6 +3,9 @@ FROM php:7.1-apache
 # SMF Version
 ENV version 2-0-15
 
+# Set working directory
+WORKDIR /var/www/html/forum
+
 # Copy Conifgurations
 COPY php.ini ${PHP_INI_DIR}/php.ini
 COPY site.conf /etc/apache2/sites-available/000-default.conf
