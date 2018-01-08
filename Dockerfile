@@ -21,3 +21,7 @@ RUN service apache2 restart
 ADD https://download.simplemachines.org/index.php/smf_${version}_install.tar.gz ./smf.tar.gz
 RUN tar xvzf smf.tar.gz
 RUN rm smf.tar.gz
+
+# Allow SMF to write to the files it needs
+RUN chmod 755 -R attachments/ avatars/ cache/ Packages/ Packages/installed.list Smileys/ Themes/ agreement.txt Settings.php Settings_bak.php
+RUN chown -R www-data:www-data ./
