@@ -11,7 +11,7 @@ COPY php.ini ${PHP_INI_DIR}/php.ini
 COPY site.conf /etc/apache2/sites-available/000-default.conf
 
 # Configure PHP and Apache
-RUN apt-get update -y && apt-get install -y libpng-dev curl libcurl4-openssl-dev
+RUN apt-get update -y && apt-get install -y libpng-dev curl libcurl4-openssl-dev libjpeg-dev
 RUN docker-php-ext-install pdo pdo_mysql mysqli gd curl
 
 RUN a2enmod rewrite
